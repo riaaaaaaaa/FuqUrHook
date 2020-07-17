@@ -36,7 +36,7 @@ def Menu():
 
 def Help():
 	print(f'''{Fore.RESET}{Fore.RED}		-- Commands are seperated by commas --{Fore.RESET}
-{Fore.GREEN}spam,(webhook),(message),(integer) | {Fore.RESET}Spam a given webhook any amount of times
+{Fore.GREEN}spam,(webhook),(message),(amount) | {Fore.RESET}Spam a given webhook any amount of times
 {Fore.GREEN}delete,(webhook) | {Fore.RESET}Forcefully deletes the given webhook, regardless of perms
 {Fore.GREEN}getinfo,(webhook) | {Fore.RESET}Gives a list of information about the desired webhook.
 {Fore.GREEN}destroy,(webhook) | {Fore.RESET}Completely destroys the given webhook.

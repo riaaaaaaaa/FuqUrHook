@@ -1,7 +1,7 @@
 # FuqUrHook
   - A simple program for fucking with Discord webhooks
 
-![](https://github.com/riaaaaaaaa/FuqUrHook/blob/master/screenie.png?raw=true)
+![](https://github.com/riaaaaaaaa/FuqUrHook/blob/master/screeniee.png?raw=true)
 
 ## Requirements
   - Python 3.7.5

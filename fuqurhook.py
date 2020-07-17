@@ -1,3 +1,7 @@
+# Created by ria | https://github.com/riaaaaaaaa
+# Don't be a skid and give some credit if used kthx
+# Thats about it ily have fun <3
+
 class INIT:
 	__version__ = 1.0
 
@@ -24,8 +28,9 @@ def Menu():
 			  ░         ░       ░        ░      ░  ░  ░    ░ ░      ░ ░  ░  ░   
 
 
-				{Fore.RED}FuqUrHook {INIT.__version__} | {Fore.CYAN}Type "help" for a list of commands
-				{Fore.RED}Created by | {Fore.CYAN}ria
+				{Fore.CYAN}FuqUrHook {INIT.__version__} {Fore.RESET}| {Fore.RED}Type "help" for a list of commands
+				{Fore.CYAN}Created by {Fore.RED}ria
+				{Fore.CYAN}https://github.com/{Fore.RED}riaaaaaaaa
 
 ''' + Fore.RESET)
 

@@ -52,7 +52,6 @@ def Scrape():
 		prox = open("proxies.txt", "a+")
 		prox.seek(0)
 		prox.truncate()
-		prox = open("proxies.txt", "a+")
 		proxies = []
 		for proxy in r.text.split('\n'):
 			proxy = proxy.strip()

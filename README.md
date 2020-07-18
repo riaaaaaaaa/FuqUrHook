@@ -13,4 +13,4 @@
   - 'destroyspam' is the message that will be sent when using the "destroy" command
 
 ## Legality
-Everything you can see here has been made for educational purposes and proof of concepts. I do not promote or condone the usage of my tools for malicous purposes.
+Everything you can see here has been made for educational purposes and proof of concepts. I do not promote or condone the usage of my tools for malicious purposes.

@@ -10,7 +10,7 @@ from colorama import Fore
 req = requests.Session()
 
 with open("config.json", encoding='utf-8', errors='ignore') as f:
-    configdata = json.load(f, strict=False)
+	configdata = json.load(f, strict=False)
 config = configdata["BotConfig"]
 proxies = open('proxies.txt','r').read().splitlines()
 proxies = [{'https':'http://'+proxy} for proxy in proxies]
@@ -40,8 +40,29 @@ def Help():
 {Fore.GREEN}delete,(webhook) | {Fore.RESET}Forcefully deletes the given webhook, regardless of perms
 {Fore.GREEN}getinfo,(webhook) | {Fore.RESET}Gives a list of information about the desired webhook.
 {Fore.GREEN}destroy,(webhook) | {Fore.RESET}Completely destroys the given webhook.
+{Fore.GREEN}scrape-proxies | {Fore.RESET}Scrapes HTTP proxies from proxyscrape.com and writes them to proxies.txt
 {Fore.GREEN}clear | {Fore.RESET}Resets the console
 ''' + Fore.RESET)
+	Start()
+
+def Scrape():
+	print(f"[{Fore.GREEN}+{Fore.RESET}] Scraping proxies...")
+	try:
+		r = req.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=http&timeout=1500')
+		prox = open("proxies.txt", "a+")
+		prox.seek(0)
+		prox.truncate()
+		prox = open("proxies.txt", "a+")
+		proxies = []
+		for proxy in r.text.split('\n'):
+			proxy = proxy.strip()
+			if proxy:
+				proxies.append(proxy)
+		for p in proxies:
+			prox.write((p)+"\n")
+		print(f"[{Fore.GREEN}+{Fore.RESET}] Finished!")
+	except Exception as e:
+		print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{e}"+Fore.RESET)
 	Start()
 
 def Spam(webhook, message, amount):
@@ -126,6 +147,8 @@ def Start():
 	command = list(input('').split(','))
 	if command[0] == 'help':
 		Help()
+	if command[0] == 'scrape-proxies':
+		Scrape()
 	elif command[0] == 'clear':
 		Clear()
 		Menu()

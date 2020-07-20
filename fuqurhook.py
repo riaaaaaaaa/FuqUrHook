@@ -5,7 +5,7 @@
 class INIT:
 	__version__ = 1.0
 
-import json,requests,os,time
+import json,requests,os,time,random
 from colorama import Fore
 req = requests.Session()
 
@@ -66,7 +66,7 @@ def Scrape():
 
 def Spam(webhook, message, amount):
 	try:
-		if config["useproxy"] == true:
+		if config["useproxy"] == True:
 			proxy = proxy = random.choice(proxies)
 			for _ in range(amount):
 				r = req.post(webhook, json = {'content':f'{message}','username':config["username"],'avatar_url':config["avatar"]}, proxies = proxy)
@@ -93,7 +93,7 @@ def Spam(webhook, message, amount):
 def Destroy(webhook):
 	try:
 		print(f"[{Fore.GREEN}+{Fore.RESET}] Spamming webhook...")
-		if config["useproxy"] == true:
+		if config["useproxy"] == True:
 			proxy = proxy = random.choice(proxies)
 			for _ in range(150):
 				time.sleep(1)

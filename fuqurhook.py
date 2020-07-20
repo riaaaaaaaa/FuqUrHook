@@ -5,7 +5,7 @@
 class INIT:
 	__version__ = 1.0
 
-import json,requests,os,time,random
+import json,requests,os,time,random,ctypes
 from colorama import Fore
 req = requests.Session()
 
@@ -16,6 +16,7 @@ proxies = open('proxies.txt','r').read().splitlines()
 proxies = [{'https':'http://'+proxy} for proxy in proxies]
 
 def Menu(): 
+	ctypes.windll.kernel32.SetConsoleTitleW(f'[FuqUrHook v{INIT.__version__}] | By ria')
 	print(f'''{Fore.RESET}
 		  █████▒█    ██   █████   █    ██  ██▀███   ██░ ██  ▒█████   ▒█████   ██ ▄█▀
 		▓██   ▒ ██  ▓██▒▒██▓  ██▒ ██  ▓██▒▓██ ▒ ██▒▓██░ ██▒▒██▒  ██▒▒██▒  ██▒ ██▄█▒ 
@@ -66,6 +67,7 @@ def Scrape():
 
 def Spam(webhook, message, amount):
 	try:
+		print(config["useproxy"])
 		if config["useproxy"] == True:
 			proxy = proxy = random.choice(proxies)
 			for _ in range(amount):
@@ -99,7 +101,6 @@ def Destroy(webhook):
 				time.sleep(1)
 				r = req.post(webhook, json = {'content':f'''{config["destroyspam"]}''','username':config["username"],'avatar_url':config["avatar"]}, proxies = proxy)
 		else:
-			proxy = proxy = random.choice(proxies)
 			for _ in range(150):
 				time.sleep(1)
 				r = req.post(webhook, json = {'content':f'''{config["destroyspam"]}''','username':config["username"],'avatar_url':config["avatar"]})

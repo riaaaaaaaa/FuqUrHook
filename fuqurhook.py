@@ -50,16 +50,17 @@ def Scrape():
 	print(f"[{Fore.GREEN}+{Fore.RESET}] Scraping proxies...")
 	try:
 		r = req.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=http&timeout=1500')
-		prox = open("proxies.txt", "a+")
-		prox.seek(0)
-		prox.truncate()
+		file = open("proxies.txt", "a+")
+		file.seek(0)
+		file.truncate()
 		proxies = []
 		for proxy in r.text.split('\n'):
 			proxy = proxy.strip()
 			if proxy:
 				proxies.append(proxy)
 		for p in proxies:
-			prox.write((p)+"\n")
+			file.write((p)+"\n")
+		file.close()
 		print(f"[{Fore.GREEN}+{Fore.RESET}] Finished!")
 	except Exception as e:
 		print(f"{Fore.RED}[ERROR]: {Fore.YELLOW}{e}"+Fore.RESET)

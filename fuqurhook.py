@@ -68,7 +68,6 @@ def Scrape():
 
 def Spam(webhook, message, amount):
 	try:
-		print(config["useproxy"])
 		if config["useproxy"] == True:
 			proxy = proxy = random.choice(proxies)
 			for _ in range(amount):

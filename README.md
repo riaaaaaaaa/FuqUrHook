@@ -4,7 +4,7 @@
 ![](https://github.com/riaaaaaaaa/FuqUrHook/blob/master/screeniee.png?raw=true)
 
 ## Requirements
-  - Python 3.7.5
+  - Python 3.8.5
   - colorama, requests
 
 ## Config Setup

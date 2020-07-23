@@ -68,8 +68,9 @@ def Scrape():
 
 def Spam(webhook, message, amount):
 	try:
+		print(config["useproxy"])
 		if config["useproxy"] == True:
-			proxy = proxy = random.choice(proxies)
+			proxy = random.choice(proxies)
 			for _ in range(amount):
 				r = req.post(webhook, json = {'content':f'{message}','username':config["username"],'avatar_url':config["avatar"]}, proxies = proxy)
 				if r.status_code == 204:
@@ -96,7 +97,7 @@ def Destroy(webhook):
 	try:
 		print(f"[{Fore.GREEN}+{Fore.RESET}] Spamming webhook...")
 		if config["useproxy"] == True:
-			proxy = proxy = random.choice(proxies)
+			proxy = random.choice(proxies)
 			for _ in range(150):
 				time.sleep(1)
 				r = req.post(webhook, json = {'content':f'''{config["destroyspam"]}''','username':config["username"],'avatar_url':config["avatar"]}, proxies = proxy)

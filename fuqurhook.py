@@ -148,7 +148,7 @@ def Start():
 	command = list(input('').split(','))
 	if command[0] == 'help':
 		Help()
-	if command[0] == 'scrape-proxies':
+	elif command[0] == 'scrape-proxies':
 		Scrape()
 	elif command[0] == 'clear':
 		Clear()
